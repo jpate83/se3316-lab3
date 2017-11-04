@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Lab 3 - Part 2</title>
+    </head>
+    <body>
+        
+        <h1>Message board</h1>
+        
+        <form id="cs1-form" name="cs1-form" method="POST" action="/create-message" accept-charset="UTF-8" onsubmit="clearForm()">
+            <label for="cs1-course">Course:</label>
+            <input id="cs1-course" type="text" name="course" value="cs1" readonly required />
+            <label for="cs1-message">Message:</label>
+            <textarea name="message" id="cs1-message" placeholder="Enter a message..." cols="42" rows ="3" required></textarea>
+            <input type="submit" value="Post"/>
+        </form>
+        
+        <form id="cs2-form" name="cs2-form" method="POST" action="/create-message" accept-charset="UTF-8" onsubmit="clearForm()">
+            <label for="cs2-course">Course:</label>
+            <input id="cs2-course" type="text" name="course" value="cs2" readonly required />
+            <label for="cs2-message">Message:</label>
+            <textarea name="message" id="cs2-message" placeholder="Enter a message..." cols="42" rows ="3" required></textarea>
+            <input type="submit" value="Post"/>
+        </form>
+        
+        <div style="display:flex;">
+            <div>
+                <h2>cs1</h2>
+                <ul id="cs1-messages">
+                    
+                </ul>
+            </div>
+            <div>
+                <h2>cs2</h2>
+                <ul id="cs2-messages">
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <script type="text/x-handlebars-template" id="message-template">
+            <li>
+                <p>{{{body}}}</p>
+                <p><i>Posted: {{momentFormat created}}</i></p>
+            </li>
+        </script>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
+        <script type="text/javascript" src="/script.js"></script>
+    </body>
+</html>
